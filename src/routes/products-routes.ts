@@ -1,9 +1,11 @@
 import { ProductController } from "@/controllers/products-controller";
 import { Router } from "express";
 
-const productRoutes = Router()
+const productsRoutes = Router()
 const productsController = new ProductController()
 
-productRoutes.get("/", productsController.index)
+productsRoutes.get("/", productsController.index)
+productsRoutes.post("/", productsController.create)
 
-export {productRoutes}
+
+export {productsRoutes}

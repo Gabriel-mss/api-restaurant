@@ -4,7 +4,7 @@
   "description": "API para gerenciar pedidos das mesas de um retaurante.",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/server.ts nodemon",
     "knex": "tsx ./node_modules/knex/bin/cli.js"
   },
   "author": "Gabriel Martins",
@@ -14,11 +14,13 @@
     "knex": "^3.2.10",
     "mysql2": "^3.22.5",
     "pg": "^8.22.0",
-    "sqlite3": "^6.0.1"
+    "sqlite3": "^6.0.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.12",
+    "nodemon": "^3.1.14",
     "tsx": "^4.16.2",
     "typescript": "^5.5.4"
   }

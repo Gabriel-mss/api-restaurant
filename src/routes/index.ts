@@ -1,8 +1,8 @@
 import { Router } from "express";
 
-import { productRoutes } from "./products-routes";
+import { productsRoutes } from "./products-routes";
 
 const routes = Router()
-routes.use("/products", productRoutes)
+routes.use("/products", productsRoutes)
 
 export {routes}
