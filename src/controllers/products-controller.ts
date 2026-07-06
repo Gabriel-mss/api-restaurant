@@ -49,7 +49,7 @@ class ProductController {
 
             const product = await knex<ProductRepository>("products").select().where({ id }).first()
 
-            if(!product){
+            if (!product) {
                 throw new AppError("product not found!")
             }
 
@@ -63,7 +63,7 @@ class ProductController {
         }
     }
 
-    async remove(req: Request, res: Response, next: NextFunction){
+    async remove(req: Request, res: Response, next: NextFunction) {
         try {
             const id = z
                 .string()
@@ -71,18 +71,18 @@ class ProductController {
                 .refine((value) => !isNaN(value), { message: "id must be a number" })
                 .parse(req.params.id)
 
-                const product = await knex<ProductRepository>("products")
-                    .select()
-                    .where({ id })
-                    .first()
+            const product = await knex<ProductRepository>("products")
+                .select()
+                .where({ id })
+                .first()
 
-                    if(!product){
-                        throw new AppError("product not found")
-                    }
+            if (!product) {
+                throw new AppError("product not found")
+            }
 
-                await knex<ProductRepository>("products").delete().where({ id })
+            await knex<ProductRepository>("products").delete().where({ id })
 
-                return res.json()
+            return res.json()
 
         } catch (error) {
             next(error)
