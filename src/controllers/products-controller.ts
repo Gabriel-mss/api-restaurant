@@ -7,6 +7,7 @@ class ProductController {
     async index(req: Request, res: Response, next: NextFunction) {
         try {
             const { name } = req.query
+            
             const products = await knex<ProductRepository>("products")
                 .select()
                 .whereLike("name", `%${name ?? ""}%`)
